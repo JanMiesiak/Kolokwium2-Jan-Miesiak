@@ -5,8 +5,9 @@ using System.Threading.Tasks;
 
 namespace Kolokwium2.Models
 {
-    public class TestModel
+    public class MusicLabel
     {
-        
+        public int IdMusicLabel { get; set; }
+        public string Name { get; set; }
     }
 }

@@ -6,12 +6,14 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using Kolokwium2.Services;
+using Kolokwium2.Models;
 
 namespace Kolokwium2
 {
@@ -29,7 +31,7 @@ namespace Kolokwium2
         {
 
             services.AddControllers();
-            //services.AddDbContext<RepositoryContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Default")));
+            services.AddDbContext<RepositoryContext>(options => options.UseSqlServer(Configuration.GetConnectionString("Default")));
             services.AddScoped<IRepoService, RepoService>();    
             services.AddSwaggerGen(c =>
             {

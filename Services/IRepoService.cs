@@ -7,6 +7,9 @@ namespace Kolokwium2.Services
 {
     public interface IRepoService
     {
-        
+        IQueryable<Musician> GetMusicianById(int id);
+        List <Track> GetTracks();
+        //IQueryable<Track> GetAllTracksByMusicianName(string musicianName);
+
     }
 }

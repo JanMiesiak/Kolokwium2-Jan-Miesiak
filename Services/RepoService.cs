@@ -8,10 +8,28 @@ namespace Kolokwium2.Services
 {
     public class RepoService : IRepoService
     {
-        // private readonly RepositoryContext _repository;
-        // public RepoService(RepositoryContext repository)
+        private readonly RepositoryContext _repository;
+
+        public RepoService(RepositoryContext repository)
+        {
+            _repository = repository;
+        }
+        public IQueryable<Musician> GetMusicianById(int id)
+        {
+            return _repository.Musician.Where(e => e.IdMusician == id);
+        }
+        public List<Track> GetTracks()
+        {
+            return new List<Track>();
+        }
+        // public IQueryable<Track> GetAllTracksByMusicianName(string musicianName)
         // {
-        //     _repository = repository;
+        //     return _repository.Track
+        //         .Include(e => e.Musician)
+        //         .Where(e => e.Klient.Nazwisko == clientName)
+        //         .Include(e => e.ZamowieniaWyrobCukierniczy)
+        //         .ThenInclude(e => e.WyrobCukierniczy);
         // }
+
     }
 }
